@@ -1,15 +1,14 @@
 const express = require("express");
 const config = require("./config");
 const morgan = require("morgan");
+const cors = require("cors");
 const app = express();
-const lotaip = require("./modules/lotaip/routes");
-const indexlotaip = require("./modules/indexlotaip/routes");
-
 
 const error = require("./red/errors");
 //MIDDLEWARE
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 //CONFIG
